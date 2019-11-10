@@ -24,7 +24,28 @@
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
 				<version>9.4.20.v20190813</version>
-			</plugin>			
+			</plugin>
+			
+			<plugin>
+				<groupId>org.codehaus.cargo</groupId>
+				<artifactId>cargo-maven2-plugin</artifactId>
+				<version>1.7.7</version>
+				<configuration>
+					<container>
+						<containerId>tomcat7x</containerId>
+						<type>remote</type>
+					</container>
+					<configuration>
+						<type>runtime</type>
+							<properties>
+								<cargo.remote.username>deploy</cargo.remote.username>
+								<cargo.remote.password>deploy</cargo.remote.password>
+								<cargo.hostname>localhost</cargo.hostname>
+								<cargo.servlet.port>8085</cargo.servlet.port>
+							</properties>
+					</configuration>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 	
@@ -53,7 +74,7 @@
 			<artifactId>spring-security-config</artifactId>
 			<version>${spring.security.version}</version>
 		</dependency>
-                
+		
 		<dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
