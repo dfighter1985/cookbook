@@ -18,6 +18,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 -->
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -33,11 +34,11 @@ SOFTWARE.
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="/">PatronEmailManager</a>
+                    <a class="navbar-brand" href="<c:url value="/" />">PatronEmailManager</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li><a href="/search">Search</a></li>
-                    <li><a href="/j_spring_security_logout">Logout</a></li>
+                    <li><a href="<c:url value="/search" />">Search</a></li>
+                    <li><a href="<c:url value="/j_spring_security_logout" />">Logout</a></li>
                 </ul>
             </div>
         </nav>

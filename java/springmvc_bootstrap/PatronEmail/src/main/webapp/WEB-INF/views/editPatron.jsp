@@ -35,11 +35,11 @@ SOFTWARE.
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="/">PatronEmailManager</a>
+                    <a class="navbar-brand" href="<c:url value="/" />">PatronEmailManager</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li><a href="/search">Search</a></li>
-                    <li><a href="/logout">Logout</a></li>
+                    <li><a href="<c:url value="/search" />">Search</a></li>
+                    <li><a href="<c:url value="/j_spring_security_logout" />">Logout</a></li>
                 </ul>
             </div>
         </nav>
@@ -47,7 +47,9 @@ SOFTWARE.
         <c:if test="${message != null}">
             <h1>${message}</h1>
         </c:if>
-        <form:form action="/edit" method="POST" modelAttribute="EditPatron">
+            
+        <c:url var="editUrl" value="/edit" />
+        <form:form action="${editUrl}" method="POST" modelAttribute="EditPatron">
             <form:hidden path="id"/>
             <table class="table">
                 <tr><td>Id</td><td>${patron.id}</td></tr>

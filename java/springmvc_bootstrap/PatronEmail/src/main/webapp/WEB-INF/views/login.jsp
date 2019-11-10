@@ -34,7 +34,7 @@ SOFTWARE.
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="/">PatronEmailManager</a>
+                    <a class="navbar-brand" href="<c:url value="/" />">PatronEmailManager</a>
                 </div>
             </div>
         </nav>
@@ -44,7 +44,7 @@ SOFTWARE.
         <c:if test="${SPRING_SECURITY_LAST_EXCEPTION.message != null}">
             <span>Security error: ${SPRING_SECURITY_LAST_EXCEPTION.message}</span>
         </c:if>
-        <form action="/j_spring_security_check" method="POST">
+            <form action="<c:url value="/j_spring_security_check"/>" method="POST">
             <table class="table">
                 <tr><td>User</td><td><input type="text" id="username" name="j_username"/></td></tr>
                 <tr><td>Password</td><td><input type="password" id="password" name="j_password"/></td></tr>

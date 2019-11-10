@@ -35,16 +35,17 @@ SOFTWARE.
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="/">PatronEmailManager</a>
+                    <a class="navbar-brand" href="<c:url value="/" />">PatronEmailManager</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li><a href="/search">Search</a></li>
-                    <li><a href="/j_spring_security_logout">Logout</a></li>
+                    <li><a href="<c:url value="/search" />">Search</a></li>
+                    <li><a href="<c:url value="/j_spring_security_logout" />">Logout</a></li>
                 </ul>
             </div>
         </nav>
         
-        <form:form action="/search" method="POST" modelAttribute="SearchPatron">
+        <c:url var="searchUrl" value="/search" />
+        <form:form action="${searchUrl}" method="POST" modelAttribute="SearchPatron">
             <table class="table table-bordered">
                 <tr><td>id</td><td><form:input path="id"/></td></tr>
                 <tr><td>First name</td><td><form:input path="firstName"/></td></tr>
@@ -78,7 +79,7 @@ SOFTWARE.
                         <td>${patron.firstName}</td>
                         <td>${patron.lastName}</td>
                         <td>${patron.email}</td>
-                        <td><a href="/edit?id=${patron.id}">edit</a></td>
+                        <td><a href="<c:url value="/edit?id=${patron.id}" />">edit</a></td>
                     </tr>
                 </c:forEach>
             </table>
